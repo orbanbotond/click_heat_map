@@ -7,7 +7,7 @@ class JavascriptsController < ActionController::Base
     url = params[:url]
     url = "http://orbankulcsoshaz.myhost/"
     @heatmap = "/images/" + HeatMapUrl.create_heatmap(url)
-    @overlay_style = "<style type='text/css'>@import url('/stylesheets/overlay.css');</style>"
+    @overlay_style = "<style type='text/css'>@import url('/stylesheets/click_heat_map.css');</style>"
     render :action => "overlay.js"    
   end
 
