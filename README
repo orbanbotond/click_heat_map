@@ -1,13 +1,26 @@
-ClickHeatMap
-============
-
-Introduction goes here.
-
-
-Example
-=======
-
-Example goes here.
+ Click Heat Map
+================
+A small click heat map plugin for ruby on rails applications.
 
 
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+Install
+-------
+./script/plugin install git://github.com/orbanbotond/click_heat_map.git
+
+
+
+Steps after install
+-------------------
+1 'rake db:migrate:click_heat_map'
+2 Put the below in the pages you want to measure
+
+	'<% if logged_in? %>
+  	 <script src='/javascripts/overlay.js' type='text/javascript'></script>
+   <% else %>
+	   <script src='/javascripts/clickmap.js' type='text/javascript'></script>
+   <% end%>'
+
+
+Uninstall
+---------
+./script/plugin remove click_heat_map
