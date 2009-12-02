@@ -11,7 +11,8 @@ Install
 
 Steps after install
 -------------------
-1 'rake db:migrate:click_heat_map'
+1 From you plugin directory run (not from Rails root):
+		'rake db:migrate:click_heat_map'
 2 Put the below in the pages you want to measure
 
 	'<% if logged_in? %>
