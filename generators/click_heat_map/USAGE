@@ -1,0 +1,8 @@
+Description:
+    It will create the migration files needed for click heat map.
+
+Example:
+    ./script/generate click_heat_map migration
+
+    This will create:
+        db/migrate/TIMESTAMP_create_click_heat_map_structure

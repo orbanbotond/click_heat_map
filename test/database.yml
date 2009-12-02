@@ -1,0 +1,10 @@
+mysql:
+  adapter: mysql
+  database: orbankulcsoshaz_development
+  username: root
+  password: 
+  host:   localhost
+sqlite3:
+  database: ":memory:"
+  adapter: sqlite3
+  timeout: 500
