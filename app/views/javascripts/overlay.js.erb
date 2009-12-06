@@ -62,10 +62,15 @@ DISPLAY = {
 	this.tab_options.color = '#4368ff';
 	
     this.tab_html = '<a href="#" id="clip" style="background-color:'+this.tab_options.color+'">HEATMAP</a>';
-    this.overlay_html = '<div id="heatmap_panel" style="display:none" onclick="DISPLAY.hide();return false">' +
+    <% if @heatmap %>
+      this.overlay_html = '<div id="heatmap_panel" style="display:none" onclick="DISPLAY.hide();return false">' +
 							'<img src="<%= @heatmap %>" style="'+hstyle+'" >' +
                           '<div id="gray_panel"></div>' +
-                        '</div>';                        
+                        '</div>';
+    <% else %>
+      this.overlay_html = '<div id="heatmap_panel" style="display:none" onclick="DISPLAY.hide();return false">' +
+							'<p style="position:fixed;top:85%;left:30px;-moz-border-radius:25px; padding:12px;background:white;border: 7px solid red; margin: auto; width: 350px;font-size:120%;color:blue;verticalAlign:middle">There is not enough click data for this page yet!</p><div id="gray_panel"></div></div>';
+    <% end %>
 
     document.write(this.tab_html);
     document.write(this.overlay_html);      

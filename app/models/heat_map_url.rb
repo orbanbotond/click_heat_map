@@ -15,9 +15,12 @@ class HeatMapUrl < ActiveRecord::Base
       urlClicks = findByUrl url
       fileName = "#{url.gsub(/[\/:.]/, '')}.png"
       heatmap_file = "#{RAILS_ROOT}/public/images/#{fileName}"
-      logger.debug "--- #{heatmap_file}---"
-      Heatmap::Image.create_heatmap( heatmap_file, urlClicks.clicks)
-      fileName
+      if(urlClicks)
+        Heatmap::Image.create_heatmap( heatmap_file, urlClicks.clicks)
+        fileName
+      else
+        nil
+      end
     end
     private
     def findByUrl( url)
