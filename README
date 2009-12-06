@@ -2,26 +2,48 @@
 ================
 A small click heat map plugin for ruby on rails applications.
 
+1. Requirements
+------------
+Rmagick and Rails 2.3.2 needs to be installed.
 
-Install
--------
+
+
+2. Instalation
+-----------
 ./script/plugin install git://github.com/orbanbotond/click_heat_map.git
 
 
-
-Steps after install
+3. Steps after install
 -------------------
-1 From you plugin directory run (not from Rails root):
+3.1 - From you plugin directory run (not from Rails root):
 		'rake db:migrate:click_heat_map'
-2 Put the below in the pages you want to measure
+3.2 - Put and adapt the below code in the templates you want to measure.
 
-	'<% if logged_in? %>
-  	 <script src='/javascripts/overlay.js' type='text/javascript'></script>
-   <% else %>
-	   <script src='/javascripts/clickmap.js' type='text/javascript'></script>
-   <% end%>'
+  <% if logged_in? %>
+    <script src='/javascripts/overlay.js' type='text/javascript'></script>
+  <% else %>
+    <script src='/javascripts/clickmap.js' type='text/javascript'></script>
+  <% end%>
+
+3.3 - Put this html code into your templates you want to measure.
+ 	<div id="prova" style="margin:auto;width:800px;height:1px;"></div>
+
+3.4 - NOTE:
+I suppose that you can adapt this fragment to your specific authentication framework <% if logged_in? %>.
+This fragment would mean that if the administrator is logged in then the cleackheatmap should be displayed otherwise the mouse capturing template should be used.
+
+At the 3.3 step the div is aligned exactly as your content is aligned on the web page. It's purpose is to calculate the position of the mouse clicks independently of your windows size. The same happens when the heat map is displayed.
+
+example.1 When your content is 800px wide and it is aligned to the middle
+  <div id="prova" style="margin:auto;width:800px;height:1px;"></div>
+
+example.2 When your content is aligned to left
+  <div id="prova" style="height:1px;"></div>
 
 
-Uninstall
+4. Uninstall
 ---------
-./script/plugin remove click_heat_map
+4.1 - From you plugin directory run (not from Rails root):
+		'rake db:migrate:click_heat_map_rollback'
+4.2 - From you Rails root execute:
+    ./script/plugin remove click_heat_map
